@@ -65,6 +65,23 @@ function Exercise2() {
   );
 }
 
+function Exercise3() {
+  useEffect(() => {
+    const onClick = () => {
+      console.log("clicked");
+    };
+
+    document.addEventListener("click", onClick);
+
+    return () => {
+      document.removeEventListener("click", onClick);
+    };
+  }, []);
+
+  // No JSX output needed, only behavior
+  return null;
+}
+
 function App() {
   return (
     <>
@@ -72,6 +89,7 @@ function App() {
 
       <Exercise1 />
       <Exercise2 />
+      <Exercise3 />
     </>
   );
 }
